@@ -112,13 +112,6 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 That means password reset emails are printed directly in the terminal instead of being sent to a real inbox. When you submit the password reset form locally, copy the reset link from the terminal output and open it in your browser.
 
-## Screenshots
-
-- Home dashboard screenshot: add screenshot here
-- Login page screenshot: add screenshot here
-- Signup page screenshot: add screenshot here
-- Profile page screenshot: add screenshot here
-
 ## Future Improvements
 
 - Add user avatar uploads

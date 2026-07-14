@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Django User Authentication{% endblock %}
+
+{% block content %}
+<section class="hero-card">
+    <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+            <span class="eyebrow">Protected Dashboard</span>
+            <h1 class="display-5 fw-bold mt-3">Welcome back, {{ user.username }}.</h1>
+            <p class="lead text-secondary mt-3">
+                This dashboard is protected with Django's authentication system and only visible to logged-in users.
+            </p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+                <a href="{% url 'accounts:profile' %}" class="btn btn-primary btn-lg">View Profile</a>
+                <a href="{% url 'accounts:password_change' %}" class="btn btn-outline-primary btn-lg">Change Password</a>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="info-panel">
+                <h2 class="h4 fw-bold mb-3">Account Snapshot</h2>
+                <div class="info-row">
+                    <span>Username</span>
+                    <strong>{{ user.username }}</strong>
+                </div>
+                <div class="info-row">
+                    <span>Email</span>
+                    <strong>{{ user.email|default:"Not provided" }}</strong>
+                </div>
+                <div class="info-row">
+                    <span>Last Login</span>
+                    <strong>{{ user.last_login|date:"M d, Y h:i A"|default:"First session" }}</strong>
+                </div>
+                <div class="info-row">
+                    <span>Member Since</span>
+                    <strong>{{ user.date_joined|date:"M d, Y" }}</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
